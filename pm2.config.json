@@ -1,0 +1,9 @@
+{
+  "apps": [
+    {
+      "name": "nuxt-test",
+      "script": "yarn", 
+      "args": "start"
+    }
+  ]
+}
