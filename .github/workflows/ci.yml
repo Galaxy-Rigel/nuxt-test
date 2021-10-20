@@ -20,8 +20,8 @@ jobs:
         uses: actions/setup-node@master
       - run: yarn install
       - run: yarn build
-      # 生成压缩包（打包 .nuxt static nuxt.config.js package.json package-lock.json pm2.config.json）
-      - run: tar -zcvf release.tgz .nuxt static nuxt.config.js package.json package-lock.json pm2.config.json
+      # 生成压缩包（打包 .nuxt static nuxt.config.js package.json yarn.lock pm2.config.json）
+      - run: tar -zcvf release.tgz .nuxt static nuxt.config.js package.json yarn.lock pm2.config.json
 
       # 发布 Release（创建Release分支）
       - name: Create Release
