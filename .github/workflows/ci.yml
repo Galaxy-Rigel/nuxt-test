@@ -20,7 +20,6 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
-        
       # 缓存yarn cache
       - name: Cache node_modules 📦
         uses: actions/cache@v2.1.4
@@ -93,6 +92,9 @@ jobs:
           # 5. pm2运行配置文件
           script: |
             cd /root/project/nuxt-test
+            echo $PATH
+            source ~/.bashrc
+            echo $PATH
             wget https://github.com/Galaxy-Rigel/nuxt-test/releases/latest/download/release.tgz -O release.tgz
             tar zxvf release.tgz
             yarn install
