@@ -82,5 +82,5 @@ jobs:
             echo $PATH
             wget https://github.com/Galaxy-Rigel/nuxt-test/releases/latest/download/release.tgz -O release.tgz
             tar zxvf release.tgz
-            yarn install --production
+            yarn install
             pm2 reload pm2.config.json
