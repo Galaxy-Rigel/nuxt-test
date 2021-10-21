@@ -79,7 +79,6 @@ jobs:
             cd /root/project/nuxt-test
             echo $PATH
             source ~/.bashrc
-            source /etc/profile
             echo $PATH
             wget https://github.com/Galaxy-Rigel/nuxt-test/releases/latest/download/release.tgz -O release.tgz
             tar zxvf release.tgz
