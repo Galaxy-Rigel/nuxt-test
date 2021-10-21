@@ -25,6 +25,7 @@ jobs:
         # 生成压缩包（打包 .nuxt static nuxt.config.js package.json package-lock.json ecosystem.config.js）
       - run: tar -zcvf release.tgz .nuxt static nuxt.config.js package.json package-lock.json ecosystem.config.js
 
+
       # 发布 Release（创建Release分支）
       - name: Create Release
         id: create_release
