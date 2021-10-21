@@ -4,7 +4,7 @@ module.exports = {
       name: 'nuxtApp',
       exec_mode: 'cluster',
       instances: 'max', // Or a number of instances
-      script: './node_modules/.bin/nuxt',
+      script: 'npm',
       args: 'start',
     },
   ],
