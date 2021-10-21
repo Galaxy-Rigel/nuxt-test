@@ -82,7 +82,7 @@
             >pages/index.vue</code
           >. Have fun!
         </p>
-        <a href="http://www.lym5460.com">我的个人网站</a>
+        <a href="http://www.lym5460.com" target="_blank">我的个人网站 山水庄园</a>
       </div>
       <div class="flex justify-center pt-4 space-x-2">
         <a href="https://github.com/nuxt/nuxt.js" target="_blank"
