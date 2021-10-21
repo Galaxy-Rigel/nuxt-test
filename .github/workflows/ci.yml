@@ -20,10 +20,10 @@ jobs:
         uses: actions/setup-node@master
         # with: 
         #   node-version: '14.16.1' # 指定node版本
-        run: npm install
-        run: npm run build
+      - run: npm install
+      - run: npm run build
         # 生成压缩包（打包 .nuxt static nuxt.config.js package.json package-lock.json ecosystem.config.js）
-        run: tar -zcvf release.tgz .nuxt static nuxt.config.js package.json package-lock.json ecosystem.config.js
+      - run: tar -zcvf release.tgz .nuxt static nuxt.config.js package.json package-lock.json ecosystem.config.js
 
       # 发布 Release（创建Release分支）
       - name: Create Release
