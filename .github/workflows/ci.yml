@@ -15,10 +15,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
+      # 缓存yarn cache
+      - name: Get yarn cache directory path 🛠
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      # 缓存yarn cache
+      - name: Cache node_modules 📦
+        uses: actions/cache@v2.1.4
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
       # 打包构建
       - name: Build
         uses: actions/setup-node@master
-      - run: yarn install
+      - run: yarn
       - run: yarn build
       # 生成压缩包（打包 .nuxt static nuxt.config.js package.json yarn.lock pm2.config.json）
       - run: tar -zcvf release.tgz .nuxt static nuxt.config.js package.json yarn.lock pm2.config.json
@@ -82,5 +97,5 @@ jobs:
             echo $PATH
             wget https://github.com/Galaxy-Rigel/nuxt-test/releases/latest/download/release.tgz -O release.tgz
             tar zxvf release.tgz
-            yarn install
+            yarn
             pm2 reload pm2.config.json
